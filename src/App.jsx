@@ -5,6 +5,7 @@ import Log from "./components/Log";
 import GameOver from "./components/GameOver";
 import Winning_Combinations from "./winning-combinations";
 
+const currentYear = new Date().getFullYear();
 const PLAYERS = { X: "Player 1", O: "Player 2" };
 const Initial_GameBoard = [
   [null, null, null],
@@ -79,28 +80,36 @@ export default function App() {
   }
 
   return (
-    <main>
-      <div id="game-container">
-        <ol id="players" className="highlight-player">
-          <Player
-            isActive={activePlayer === "X"}
-            initialName="Player 1"
-            symbol="X"
-            onChangeName={HandlePlayerNameChange}
-          />
-          <Player
-            isActive={activePlayer === "O"}
-            initialName="Player 2"
-            symbol="O"
-            onChangeName={HandlePlayerNameChange}
-          />
-        </ol>
-        {(winner || hasDraw) && (
-          <GameOver onRestart={HandleRestart} winner={winner} />
-        )}
-        <GameBoard board={gameBoard} onSelectSquare={HandleSelectSquare} />
-      </div>
-      <Log turns={gameTurns} />
-    </main>
+    <>
+      <header>
+        <h1>TIC-TAC-TOE</h1>
+      </header>
+      <main>
+        <div id="game-container">
+          <ol id="players" className="highlight-player">
+            <Player
+              isActive={activePlayer === "X"}
+              initialName="Player 1"
+              symbol="X"
+              onChangeName={HandlePlayerNameChange}
+            />
+            <Player
+              isActive={activePlayer === "O"}
+              initialName="Player 2"
+              symbol="O"
+              onChangeName={HandlePlayerNameChange}
+            />
+          </ol>
+          {(winner || hasDraw) && (
+            <GameOver onRestart={HandleRestart} winner={winner} />
+          )}
+          <GameBoard board={gameBoard} onSelectSquare={HandleSelectSquare} />
+        </div>
+        <Log turns={gameTurns} />
+      </main>
+      <footer>
+        <p id="copyright">Copyright &copy; {currentYear}</p>
+      </footer>
+    </>
   );
 }
