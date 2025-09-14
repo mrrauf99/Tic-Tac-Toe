@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   line-height: 1.5;
 
   color: #ebe7ef;
@@ -23,33 +25,24 @@ body {
       rgba(241, 210, 70, 0.98),
       rgba(250, 176, 103, 0.87)
     ),
-    url('bg-pattern-dark.png');
+    url("bg-pattern-dark.png");
   background-repeat: repeat;
   background-size: 100% 100%, 30% 30%, 100% 100%;
-  min-height: 110rem;
-}
-
-header {
-  text-align: center;
-}
-
-header img {
-  width: 8rem;
-  object-fit: contain;
-  margin: 3rem auto 1rem auto;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  min-height: 100vh;
+  padding: 0 0.5rem;
 }
 
 h1 {
-  font-family: 'Caprasimo', cursive;
-  font-size: 3rem;
-  margin: 0 auto 3rem auto;
+  font-family: "Caprasimo", cursive;
+  font-size: 4rem;
   color: #3f3b00;
+  margin: 1rem 0;
+  text-align: center;
 }
 
 #game-container {
   max-width: 45rem;
-  margin: 3rem auto;
+  margin: 0 auto;
   padding: 2rem;
   border-radius: 6px;
   background: linear-gradient(#383624, #282617);
@@ -59,7 +52,6 @@ h1 {
 
 #players {
   list-style: none;
-  padding: 0;
   margin: 1rem 0;
   display: flex;
   justify-content: center;
@@ -69,7 +61,7 @@ h1 {
 
 #players li {
   display: flex;
-  align-items: center;
+  justify-content: center;
   width: 50%;
   border: 2px solid transparent;
 }
@@ -109,15 +101,12 @@ h1 {
 
 .player-name {
   display: inline-block;
-  width: 10rem;
   font-size: 1rem;
   color: #e1dec7;
   text-transform: uppercase;
-  margin: 0;
   padding: 0.5rem;
   border-radius: 4px;
   text-overflow: ellipsis;
-  text-align: center;
 }
 
 .player input {
@@ -140,23 +129,6 @@ h1 {
 
 ol {
   list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#pre-game {
-  text-align: center;
-}
-
-#pre-game button {
-  cursor: pointer;
-  background: none;
-  color: #f8c031;
-  border: none;
-  font-family: 'Caprasimo', cursive;
-  font-size: 4rem;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
-  animation: pulse-text-size 2s infinite ease-out;
 }
 
 #game-board {
@@ -171,7 +143,6 @@ ol {
 
 #game-board ol {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   margin: 0;
@@ -179,15 +150,14 @@ ol {
 }
 
 #game-board button {
-  width: 8rem;
-  height: 8rem;
+  width: 6rem;
+  height: 6rem;
   border: none;
   background: #aca788;
   color: #3f3b00;
   font-size: 5rem;
   cursor: pointer;
-  font-family: 'Caprasimo', cursive;
-  padding: 1rem;
+  font-family: "Caprasimo", cursive;
 }
 
 #game-over {
@@ -205,16 +175,16 @@ ol {
 }
 
 #game-over h2 {
-  font-family: 'Caprasimo', cursive;
-  font-size: 4rem;
+  font-family: "Caprasimo", cursive;
+  font-size: 3rem;
   text-align: center;
   color: #fcd256;
-  margin: 0;
 }
 
 #game-over p {
   font-size: 2rem;
   text-align: center;
+  margin: 1rem;
   color: #e1dec7;
 }
 
@@ -259,30 +229,11 @@ ol {
   color: white;
 }
 
-#game-hints {
+#copyright {
   text-align: center;
-  color: #46432f;
-}
-
-#game-hints h2 {
-  font-family: 'Caprasimo', cursive;
-  font-size: 2rem;
-  margin: 0;
-}
-
-#game-hints ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#game-hints button {
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  color: #23221f;
-  font: inherit;
-  margin-top: 1.5rem;
+  color: #3f3b00;
+  font-size: 1.25rem;
+  margin-bottom: 0.625rem;
 }
 
 @keyframes slide-in-from-left {
@@ -347,5 +298,37 @@ ol {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  #game-over h2 {
+    font-size: 2.5rem;
+  }
+
+  #players {
+    flex-direction: column;
+  }
+
+  #players li {
+    width: 100%;
+  }
+
+  #game-board button {
+    width: 5rem;
+    height: 5rem;
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 383px) {
+  #game-board button {
+    width: 4rem;
+    height: 4rem;
+    font-size: 3rem;
   }
 }
