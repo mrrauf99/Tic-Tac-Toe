@@ -18,7 +18,7 @@ export default function Player({
   }
 
   function HandleChange(event) {
-    setPlayerName(event.target.value);
+    setPlayerName(event.target.value.toUpperCase());
   }
 
   let editablePlayerName = <span className="player-name">{playerName}</span>;
